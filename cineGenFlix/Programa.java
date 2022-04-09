@@ -8,14 +8,28 @@ public class Programa {
 
 		public static void main(String[] args) {
 			
-			String filme1,filme2,filme3,genero;
+			String filme1,filme2,filme3,genero,y;
 			int opcao,op1=1,op2=2,op3=3,op4=4,op5=5,x;
-	        char resp=' ',A,B,C,D,E;
+	        char resp=' ';
 			 
 			Scanner ler=new Scanner(System.in);
-			Scanner leia=new Scanner(System.in);
+			
 					 
 			ArrayList<Filme> filmesDisponiveis =new ArrayList<Filme>();
+			
+			Cliente usuario = new Cliente();
+			
+			/*Criar- O cliente entrar com login e senha 
+			E ler o login e senha para verificar se é o usuario */
+			System.out.println("Digite seu email: ");
+			y = ler.next();
+			System.out.println("Digite sua senha: ");
+			y = ler.next();
+			System.out.println();
+			
+			
+			usuario.logar();
+			usuario.Cliente("sim");
 			
 			//FILMES DE ACAO
 			
@@ -25,20 +39,20 @@ public class Programa {
 			
 			Filme doutorEstranho=new Filme();
 			doutorEstranho.setNome("Doutor Estranho no Multiverso da Loucura");
-			doutorEstranho.setGenero("AÃ§Ã£o");
+			doutorEstranho.setGenero("Ação");
 			
 			Filme batman=new Filme();
 			batman.setNome("Batman");
-			batman.setGenero("AÃ§Ã£o");
+			batman.setGenero("Ação");
 			
 			//FILMES DE COMEDIA
 			Filme oPesoDoTalento=new Filme();
 			oPesoDoTalento.setNome("O Peso do Talento");
-			oPesoDoTalento.setGenero("ComÃ©dia");
+			oPesoDoTalento.setGenero("Comédia");
 			
 			Filme superQuem=new Filme();
 			superQuem.setNome("Super Quem?");
-			superQuem.setGenero("ComÃ©dia");
+			superQuem.setGenero("Comédia");
 			
 			Filme cidadePerdida=new Filme();
 			cidadePerdida.setNome("Cidade Perdida");
@@ -87,11 +101,11 @@ public class Programa {
 			do{
 				
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-			System.out.println("            Bem vindo ao Genflix              ");
+			System.out.println("            Bem vindo ao Cine-Genflix         ");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			
 			
-			System.out.println("\nEscolha o seu filme por gÃªnero: \n");
+			System.out.println("\nEscolha o seu filme por atraves do genero desejado: \n");
 			System.out.println("1-AÃ§Ã£o  "+"2-ComÃ©dia  "+"3-Drama  "+"4-Suspense  "+"5-Terror");
 			opcao=ler.nextInt();
 			
@@ -108,9 +122,11 @@ public class Programa {
 					System.out.println("1-Morbius\n");
 					System.out.println("2-Doutor Estranho no Multiverso da Loucura\n");
 					System.out.println("3-Batman\n");
+					System.out.println("Escolha o filme de sua preferência: \n");
+
 				
 				}	
-				x=leia.nextInt();
+				x=ler.nextInt();
 								if (x == 1)
 								{
 									System.out.println("\n"+morbius.getNome()+"\n"+morbius.getGenero()+"\n"
@@ -131,28 +147,29 @@ public class Programa {
 										}
 								else if (x==2)
 								{
-									System.out.println("Doutor Estranho no Multiverso da Loucura\n"
+									System.out.println("\n"+doutorEstranho.getNome()+"\n"+doutorEstranho.getSinopse()
 											+ "125 MIN\n"
 											+ " \n"
 											+ "Leia a sinopse\n"
 											+ "\n"
 											+ "O aguardado filme trata da jornada do Doutor Estranho rumo ao desconhecido. \n"
-											+ "AlÃ©m de receber ajuda de novos aliados mÃ­sticos e outros jÃ¡ conhecidos do pÃºblico, \n"
-											+ "o personagem atravessa as realidades alternativas incompreensÃ­veis e perigosas do Multiverso \n"
-											+ "para enfrentar um novo e misterioso adversÃ¡rio.\n"
+											+ "Além de receber ajuda de novos aliados místicos e outros já conhecidos do público, \n"
+											+ "o personagem atravessa as realidades alternativas incompreensíveis e perigosas do Multiverso \n"
+											+ "para enfrentar um novo e misterioso adversário.\n"
 											+ "\n"
 											+ "Elenco: Benedict Cumberbatch, Elizabeth Olsen, Benedict Wong\n"
-											+ "DuraÃ§Ã£o: 125 min\n"
+											+ "Duração: 125 min\n"
 											+ "Diretor: Scott Derrickson\n"
 											+ "Distribuidora: Walt Disney\n"
-											+ "GÃªnero: AÃ§Ã£o  \n"
-											+ "ClassificaÃ§Ã£o: 12 anos\n"
+											+ "Gênero: Ação  \n"
+											+ "Classificação: 12 anos\n"
 											+ "Estreia: 05/05/2022\n");
 								}
+
 									else 
 										
 									{
-										System.out.println("BATMAN\n"
+										System.out.println("\n"+batman.getNome()+"\n"+batman.getGenero()
 												+ "175 MIN\n"
 												+ " \n"
 												+ "Leia a sinopse\n"
@@ -184,8 +201,9 @@ public class Programa {
 					System.out.println("1-Super Quem?\n");
 					System.out.println("2-O Peso do Talento\n");
 					System.out.println("3-Cidade Perdida\n");
-					
-					System.out.println("Escolha o filme que vc quer seu arrombado");			
+					System.out.println("Escolha o filme de sua preferência: \n");
+
+							
 					x = ler.nextInt();
 				
 							if (x == 1)
@@ -258,8 +276,8 @@ public class Programa {
 					System.out.println("1-Belfast\n");
 					System.out.println("2-Drive My Car\n");
 					System.out.println("3-King Richard: Criando CampeÃ£s\n");
-					
-					System.out.println("Escolha o filme que vc quer seu arrombado");			
+					System.out.println("Escolha o filme de sua preferência: \n");
+			
 					x = ler.nextInt();
 				
 							if (x == 1)
@@ -332,8 +350,8 @@ public class Programa {
 					System.out.println("1-A Hora do Desespero\n");
 					System.out.println("2-Veja Por Mim\n");
 					System.out.println("3-Naquele Fim de Semana\n");
-					
-					System.out.println("Escolha o filme que vc quer seu arrombado");			
+					System.out.println("Escolha o filme de sua preferência: \n");
+			
 					x = ler.nextInt();
 				
 							if (x == 1)
@@ -401,8 +419,8 @@ public class Programa {
 					System.out.println("1-O Ritual: PresenÃ§a Maligna\n");
 					System.out.println("2-O Telefone Preto\n");
 					System.out.println("3-Crocodilos â€“ A Morte te Espera\n");
-					
-					System.out.println("Escolha o filme que vc quer seu arrombado");			
+					System.out.println("Escolha o filme de sua preferência: \n");
+			
 					x = ler.nextInt();
 				
 							if (x == 1)
@@ -478,7 +496,7 @@ public class Programa {
 					
 			}while(resp!='s');
 
-			System.out.println("Obrigado,boa sessÃ£o!!");
+			System.out.println("Obrigado,boa sessão!!");
 		}
 
 	}
