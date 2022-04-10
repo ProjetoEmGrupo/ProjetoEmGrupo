@@ -394,6 +394,7 @@ public class Programa {
             
             //COMPRA DO FILME
             System.out.println("\nDeseja comprar o filme?");
+            System.out.println("\nDigite 's' para sim 'n' para não.");
             comprarLer = ler.next().charAt(0);
             if (comprarLer == 's') {
                 System.out.println("\nO filme foi adicionado à sua carteira virtual!");
@@ -401,7 +402,7 @@ public class Programa {
                 System.out.println("\nDeseja sair?\nDigite 's' para sair ou digite 'n' para retornar ao inicio.");
 
             } else {
-                System.out.println("\nDeseja sair?\nDigite s para sair ou digite n para retornar ao inicio.");
+            	System.out.println("\nDeseja sair?\nDigite 's' para sair ou digite 'n' para retornar ao inicio.");
             }
             resposta = ler.next().charAt(0);
 
