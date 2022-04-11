@@ -7,6 +7,7 @@ public class Programa {
 
 	public static void main(String[] args) {
 
+		//ATRIBUTOS
 		String login, nome, email, segredo, segredo2;
 		int opcao, selecaoFilme, user;
 		long telefone;
@@ -15,12 +16,16 @@ public class Programa {
 		Scanner ler = new Scanner(System.in);
 
 		Cliente usuario = new Cliente();
-
+		
+        //ABERTURA   
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println("                           Cine-Genflix                           ");
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
+		
+        //OPÇÃO DE ENTRADA
 		System.out.println("Para acessar a plataforma GenFlix, digite: \n");
+		
+		//EXCEPTION GERAL INICIO
 		try {
 			System.out.println("1- Para se cadastrar \t2- Se já é cadastrado");
 			user = ler.nextInt();
@@ -29,12 +34,11 @@ public class Programa {
 				System.out.println("\nERRO!\n");
 				System.out.println("\nFIM DO PROGRAMA!");
 				System.exit(0);
-
 			}
 
 			switch (user) {
 
-			// CADASTRO USUÁRIO
+		// CADASTRO USUÁRIO
 			case 1:
 
 				System.out.println("Digite seu nome:");
@@ -42,34 +46,48 @@ public class Programa {
 
 				System.out.println("Digite seu email:");
 				email = ler.next();
-
-				System.out.println("Digite seu numero de celular:");
-				telefone = ler.nextLong();
-
-				System.out.println("Digite sua senha:");
-				segredo = ler.next();
-
-				System.out.println("Confirme sua senha:");
-				segredo2 = ler.next();
-
-				if (segredo.equals(segredo2)) {
-
-					System.out.println(" Cadastro realizado com sucesso!");
-
-				} else {
-					System.out.println("As senhas não conferem, verifique e tente novamente!");
-
+				
+				//EXCEPTION
+				try {
+					System.out.println("Digite seu numero de celular:");
+					telefone = ler.nextLong();
+				} catch (Exception erro)
+				//FINAL EXCEPTION
+				
+				{
+					System.out.println("\nERRO!" + erro + "\n\nFIM DO PROGRAMA!");
+					System.exit(0);
 					System.out.println("Digite sua senha:");
 					segredo = ler.next();
 
 					System.out.println("Confirme sua senha:");
 					segredo2 = ler.next();
-					System.out.println(" Cadastro realizado com sucesso!");
+
+					if (segredo.equals(segredo2)) {
+
+						System.out.println(" Cadastro realizado com sucesso!");
+
+					} else {
+						System.out.println("As senhas não conferem, verifique e tente novamente!\n");
+
+						System.out.println("Digite sua senha alfanumérica: ");
+						segredo = ler.next();
+
+						System.out.println("Confirme sua senha alfanumérica: ");
+						segredo2 = ler.next();
+
+						if (!segredo.equals(segredo2)) {
+							System.out.println("\nERRO!\n");
+							System.out.println("\nFIM DO PROGRAMA!");
+							System.exit(0);
+						} else {
+							System.out.println(" Cadastro realizado com sucesso!");
+						}
+					}
+
+					break;
 
 				}
-
-				break;
-
 			case 2:
 
 			// USUARIO CADASTRADO
@@ -89,8 +107,10 @@ public class Programa {
 				break;
 			}
 
-//    	FIM DO CADASTRO 
+            //FIM DO CADASTRO 
 
+			
+			//PÁGINA INICIAL
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("                    Bem vindo ao Cine-Genflix                     ");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -337,38 +357,36 @@ public class Programa {
 			filmesDeTerror.add(telefonePreto);
 			filmesDeTerror.add(crocodilos);
 
-			// INICIO WHILE
+			// INICIO LOOP
 			do {
 
 				System.out.println("\nEscolha um g�nero abaixo para ver os filmes dispon�veis: \n");
 				System.out.println("1-Ação  " + "2-Comédia  " + "3-Drama  " + "4-Suspense  " + "5-Terror");
 				opcao = ler.nextInt();
-				
-				if (opcao !=1 && opcao !=2 && opcao !=3 && opcao !=4 && opcao !=5 ) {
+
+				if (opcao != 1 && opcao != 2 && opcao != 3 && opcao != 4 && opcao != 5) {
 					System.out.println("\nERRO!\n");
 					System.out.println("\nFIM DO PROGRAMA!");
 					System.exit(0);
 				}
 
 				System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-				
 
 				Filme filmeEscolhido = new Filme();
 
 				switch (opcao) {
 
-				// GENERO ACAO
+				// MENU DO GENERO ACAO
 				case 1: {
 					System.out.println("Filmes de Ação: \n");
 					System.out.println("1-Morbius\n");
 					System.out.println("2-Doutor Estranho no Multiverso da Loucura\n");
 					System.out.println("3-Batman\n");
 					System.out.println("Escolha o filme de sua preferência: \n");
-					
 
 				}
 					selecaoFilme = ler.nextInt();
-					if (selecaoFilme !=1 && selecaoFilme !=2 && selecaoFilme !=3  ) {
+					if (selecaoFilme != 1 && selecaoFilme != 2 && selecaoFilme != 3) {
 						System.out.println("\nERRO!\n");
 						System.out.println("\nFIM DO PROGRAMA!");
 						System.exit(0);
@@ -388,10 +406,9 @@ public class Programa {
 
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-					
 					break;
 
-				// GENERO COMEDIA
+				// MENU DO GENERO COMEDIA
 				case 2:
 
 					System.out.println("Filmes de Com�dia: \n");
@@ -401,7 +418,7 @@ public class Programa {
 					System.out.println("Escolha o filme de sua prefer�ncia: \n");
 
 					selecaoFilme = ler.nextInt();
-					if (selecaoFilme !=1 && selecaoFilme !=2 && selecaoFilme !=3  ) {
+					if (selecaoFilme != 1 && selecaoFilme != 2 && selecaoFilme != 3) {
 						System.out.println("\nERRO!\n");
 						System.out.println("\nFIM DO PROGRAMA!");
 						System.exit(0);
@@ -423,7 +440,7 @@ public class Programa {
 
 					break;
 
-				// GENERO DRAMA
+				// MENU DO GENERO DRAMA
 				case 3:
 
 					System.out.println("Filmes de Drama: \n");
@@ -433,7 +450,7 @@ public class Programa {
 					System.out.println("Escolha o filme de sua prefer�ncia: \n");
 
 					selecaoFilme = ler.nextInt();
-					if (selecaoFilme !=1 && selecaoFilme !=2 && selecaoFilme !=3  ) {
+					if (selecaoFilme != 1 && selecaoFilme != 2 && selecaoFilme != 3) {
 						System.out.println("\nERRO!\n");
 						System.out.println("\nFIM DO PROGRAMA!");
 						System.exit(0);
@@ -455,7 +472,7 @@ public class Programa {
 
 					break;
 
-				// GENERO SUSPENSE
+				// MENU DO GENERO SUSPENSE
 				case 4:
 
 					System.out.println("Filmes de Suspense: \n");
@@ -465,7 +482,7 @@ public class Programa {
 					System.out.println("Escolha o filme de sua prefer�ncia: \n");
 
 					selecaoFilme = ler.nextInt();
-					if (selecaoFilme !=1 && selecaoFilme !=2 && selecaoFilme !=3  ) {
+					if (selecaoFilme != 1 && selecaoFilme != 2 && selecaoFilme != 3) {
 						System.out.println("\nERRO!\n");
 						System.out.println("\nFIM DO PROGRAMA!");
 						System.exit(0);
@@ -487,7 +504,7 @@ public class Programa {
 
 					break;
 
-				// GENERO TERROR
+				// MENU DO GENERO TERROR
 				case 5:
 
 					System.out.println("Filmes de Terror: \n");
@@ -497,7 +514,7 @@ public class Programa {
 					System.out.println("Escolha o filme de sua prefer�ncia: \n");
 
 					selecaoFilme = ler.nextInt();
-					if (selecaoFilme !=1 && selecaoFilme !=2 && selecaoFilme !=3  ) {
+					if (selecaoFilme != 1 && selecaoFilme != 2 && selecaoFilme != 3) {
 						System.out.println("\nERRO!\n");
 						System.out.println("\nFIM DO PROGRAMA!");
 						System.exit(0);
@@ -520,7 +537,7 @@ public class Programa {
 
 				}
 
-				// COMPRA DO FILME
+				//OPÇÃO DE COMPRA DO FILME
 				System.out.println("\nDeseja comprar o filme?");
 				System.out.println("\nDigite 's' para sim 'n' para n�o.");
 				comprarLer = ler.next().charAt(0);
@@ -536,12 +553,13 @@ public class Programa {
 
 			} while (resposta != 's');
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			//FIM DO LOOP
 
 			System.out.println("Obrigado, volte sempre!!");
 			ler.close();
 		} catch (Exception erro) {
 			System.out.println("\nERRO!" + erro + "\n\nFIM DO PROGRAMA!");
-
+        //FINAL EXCEPTION GERAL
 		}
 	}
 

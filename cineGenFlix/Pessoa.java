@@ -2,12 +2,14 @@ package cineGenFlix;
 
 public class Pessoa implements interfacePessoa{
 	
+	//ATRIBUTOS
 	private String nome;
 	private int idade;
 	private String email;
 	private int senha;
 
-
+   //METODOS
+	
 	@Override
 	public void logar() {
 		System.out.println("Digite seu email");
@@ -17,7 +19,7 @@ public class Pessoa implements interfacePessoa{
 	@Override
 	public void deslogar()
 	{
-		System.out.println("Você está deslogado");
+		System.out.println("Vocï¿½ estï¿½ deslogado");
 	}
 
 

@@ -14,7 +14,7 @@ public class Filme {
 		this.elenco = elenco;
 	}
 
-	//METEDO
+	//METEDOS
 	public String getGenero() {
 		return genero;
 	}
