@@ -27,87 +27,85 @@ public class Programa {
 		
 		//EXCEPTION GERAL INICIO
 		try {
-			System.out.println("1- Para se cadastrar \t2- Se já é cadastrado");
+			System.out.println("1- Se você deseja se cadastrar \t2- Se você já é cadastrado");
 			user = ler.nextInt();
 
 			if (user != 1 && user != 2) {
 				System.out.println("\nERRO!\n");
-				System.out.println("\nFIM DO PROGRAMA!");
+				System.out.println("\nFIM DO PROGRAMA! POR FAVOR, TENTE NOVAMENTE.");
 				System.exit(0);
 			}
 
 			switch (user) {
 
-		// CADASTRO USUÁRIO
-			case 1:
+			// CADASTRO USUÁRIO
+						case 1:
 
-				System.out.println("Digite seu nome:");
-				nome = ler.next();
+							System.out.println("Digite seu nome:");
+							nome = ler.next();
 
-				System.out.println("Digite seu email:");
-				email = ler.next();
-				
-				//EXCEPTION
-				try {
-					System.out.println("Digite seu numero de celular:");
-					telefone = ler.nextLong();
-				} catch (Exception erro)
-				//FINAL EXCEPTION
-				
-				{
-					System.out.println("\nERRO!" + erro + "\n\nFIM DO PROGRAMA!");
-					System.exit(0);
-					System.out.println("Digite sua senha:");
-					segredo = ler.next();
-
-					System.out.println("Confirme sua senha:");
-					segredo2 = ler.next();
-
-					if (segredo.equals(segredo2)) {
-
-						System.out.println(" Cadastro realizado com sucesso!");
-
-					} else {
-						System.out.println("As senhas não conferem, verifique e tente novamente!\n");
-
-						System.out.println("Digite sua senha alfanumérica: ");
-						segredo = ler.next();
-
-						System.out.println("Confirme sua senha alfanumérica: ");
-						segredo2 = ler.next();
-
-						if (!segredo.equals(segredo2)) {
-							System.out.println("\nERRO!\n");
-							System.out.println("\nFIM DO PROGRAMA!");
+							System.out.println("Digite seu email:");
+							email = ler.next();
+							
+							//EXCEPTION 
+							try {
+							System.out.println("Digite o número de celular:");
+							telefone = ler.nextLong();
+							} catch (Exception erro) {
+							
+							System.out.println("\nERRO!" + erro + "\n\nFIM DO PROGRAMA!");
 							System.exit(0);
-						} else {
-							System.out.println(" Cadastro realizado com sucesso!");
+							}
+							System.out.println("Digite uma senha alfanumérica:");
+							segredo = ler.next();
+
+							System.out.println("Confirme a senha:");
+							segredo2 = ler.next();
+
+							if (segredo.equals(segredo2)) {
+
+								System.out.println(" Cadastro realizado com sucesso!");
+
+							} else {
+								System.out.println("As senhas não conferem, verifique e tente novamente!");
+
+								System.out.println("Digite uma senha alfanumérica:");
+								segredo = ler.next();
+
+								System.out.println("Confirme a senha:");
+								segredo2 = ler.next();
+								
+								if (!segredo.equals(segredo2)) {
+									System.out.println("\nERRO!\n");
+									System.out.println("\nFIM DO PROGRAMA!");
+									System.exit(0);
+								} else {
+									System.out.println(" Cadastro realizado com sucesso!");
+								}
+
+							}
+
+							break;
+						
+
+						case 2:
+
+						// USUARIO CADASTRADO
+
+						{
+							// LOGIN E SENHA
+
+							System.out.println("Digite seu email: ");
+							login = ler.next();
+							System.out.println("Digite sua senha: ");
+							login = ler.next();
+							System.out.println();
+							usuario.logar();
+							usuario.Cliente("sim");
 						}
-					}
 
-					break;
-
-				}
-			case 2:
-
-			// USUARIO CADASTRADO
-
-			{
-				// LOGIN E SENHA
-
-				System.out.println("Digite seu email: ");
-				login = ler.next();
-				System.out.println("Digite sua senha: ");
-				login = ler.next();
-				System.out.println();
-				usuario.logar();
-				usuario.Cliente("sim");
-			}
-
-				break;
-			}
-
-            //FIM DO CADASTRO 
+							break;
+						}
 
 			
 			//PÁGINA INICIAL
@@ -120,11 +118,11 @@ public class Programa {
 			ArrayList<Filme> filmesDeAcao = new ArrayList<Filme>();
 			Filme morbius = new Filme();
 			morbius.setNome("Morbius");
-			morbius.setGenero("A��o");
+			morbius.setGenero("Ação");
 			morbius.setSinopse(
-					"Na tentativa de se curar de uma rara doen�aa sangu�nea, o cientista Michael Morbius (Jared Leto) \r\n"
-							+ "acaba infectando a si mesmo com um tipo de vampirismo. Sinopse oficial ainda n�o divulgada. \r\n"
-							+ "Classifica��o indicativa 14 anos, cont�m viol�ncia, drogas l�citas e linguagem impr�pria. \r\n"
+					"Na tentativa de se curar de uma rara doen�aa sanguínea, o cientista Michael Morbius (Jared Leto) \r\n"
+							+ "acaba infectando a si mesmo com um tipo de vampirismo. Sinopse oficial ainda não divulgada. \r\n"
+							+ "Classificação indicativa 14 anos, contém violência, drogas lícitas e linguagem imprópria. \r\n"
 							+ "\r\n");
 			morbius.setElenco("Jared Leto, Adria Arjona, Matt Smith (IV)");
 			morbius.setDiretor("Daniel Espinosa");
@@ -134,11 +132,11 @@ public class Programa {
 
 			Filme doutorEstranho = new Filme();
 			doutorEstranho.setNome("Doutor Estranho no Multiverso da Loucura");
-			doutorEstranho.setGenero("A��o");
+			doutorEstranho.setGenero("Ação");
 			doutorEstranho.setSinopse("O aguardado filme trata da jornada do Doutor Estranho rumo ao desconhecido. \r\n"
-					+ "Al�m de receber ajuda de novos aliados m�sticos e outros j� conhecidos do p�blico, \r\n"
-					+ "o personagem atravessa as realidades alternativas incompreens�veis e perigosas do Multiverso. \r\n"
-					+ "para enfrentar um novo e misterioso advers�rio. \r\n" + "\r\n");
+					+ "Além de receber ajuda de novos aliados místicos e outros já conhecidos do público, \r\n"
+					+ "o personagem atravessa as realidades alternativas incompreensíveis e perigosas do Multiverso. \r\n"
+					+ "para enfrentar um novo e misterioso adversário. \r\n" + "\r\n");
 			doutorEstranho.setElenco("Benedict Cumberbatch, Elizabeth Olsen, Benedict Wong");
 			doutorEstranho.setDiretor("Scott Derrickson");
 			doutorEstranho.setDistribuidora("Walt Disney");
@@ -147,15 +145,15 @@ public class Programa {
 
 			Filme batman = new Filme();
 			batman.setNome("Batman");
-			batman.setGenero("A��o");
+			batman.setGenero("Ação");
 			batman.setSinopse(
-					"Nos dois anos em que protegeu as ruas como Batman (Robert Pattinson), provocando medo no cora��o dos criminosos, \r\n"
-							+ "Bruce Wayne mergulhou nas sombras de Gotham City.� quando um assassino mira a elite de Gotham com uma s�rie de maquina��es \r\n"
-							+ "s�dicas, um rastro de pistas enigm�ticas leva Batman, o Maior Detetive do Mundo, a investigar o submundo da cidade, onde \r\n"
-							+ "encontra personagens como Selina Kyle, a Mulher-Gato (Zo� Kravitz), Oswald Cobblepot, conhecido como Pinguim (Colin Farrell), \r\n"
-							+ "Carmine Falcone (John Turturro) e Edward Nashton, tamb�m conhecido como Charada (Paul Dano). � medida que surgem evid�ncias e \r\n"
-							+ "as a��es do criminoso apontam para uma dire��o mais clara, Batman precisa forjar novas rela��es, desmascarar o culpado e trazer \r\n"
-							+ "justi�a a Gotham City, h� tanto tempo atormentada pelo abuso de poder e pela corrup��o. \r\n"
+					"Nos dois anos em que protegeu as ruas como Batman (Robert Pattinson), provocando medo no coração dos criminosos, \r\n"
+							+ "Bruce Wayne mergulhou nas sombras de Gotham City. É quando um assassino mira a elite de Gotham com uma série de maquinações \r\n"
+							+ "sádicas, um rastro de pistas enigmáticas leva Batman, o Maior Detetive do Mundo, a investigar o submundo da cidade, onde \r\n"
+							+ "encontra personagens como Selina Kyle, a Mulher-Gato (Zoe Kravitz), Oswald Cobblepot, conhecido como Pinguim (Colin Farrell), \r\n"
+							+ "Carmine Falcone (John Turturro) e Edward Nashton, também conhecido como Charada (Paul Dano). É medida que surgem evidências e \r\n"
+							+ "as ações do criminoso apontam para uma direção mais clara, Batman precisa forjar novas relações, desmascarar o culpado e trazer \r\n"
+							+ "justiça a Gotham City, há tanto tempo atormentada pelo abuso de poder e pela corrupção. \r\n"
 							+ "\r\n");
 			batman.setElenco("Benedict Cumberbatch, Elizabeth Olsen, Benedict Wong");
 			batman.setDiretor("Scott Derrickson");
@@ -171,11 +169,11 @@ public class Programa {
 			ArrayList<Filme> filmesDeComedia = new ArrayList<Filme>();
 			Filme oPesoDoTalento = new Filme();
 			oPesoDoTalento.setNome("O Peso do Talento");
-			oPesoDoTalento.setGenero("Com�dia");
-			oPesoDoTalento.setSinopse("Criativamente insatisfeito e enfrentando a ru�na financeira,\r\n"
-					+ "Nicolas Cage deve aceitar uma oferta de US$ 1 milh�o para comparecer ao anivers�rio de Javi (Pedro Pascal), um superf� perigoso. \r\n"
-					+ "As coisas tomam um rumo totalmente inesperado quando Cage � recrutado por um agente da CIA (Tiffany Haddish) \r\n"
-					+ "e for�ado a viver de acordo com sua pr�pria lenda, canalizando seus personagens mais ic�nicos e amados na tela para salvar a si \r\n"
+			oPesoDoTalento.setGenero("Comédia");
+			oPesoDoTalento.setSinopse("Criativamente insatisfeito e enfrentando a ruína financeira,\r\n"
+					+ "Nicolas Cage deve aceitar uma oferta de US$ 1 milhão para comparecer ao aniversário de Javi (Pedro Pascal), um superfã perigoso. \r\n"
+					+ "As coisas tomam um rumo totalmente inesperado quando Cage é recrutado por um agente da CIA (Tiffany Haddish) \r\n"
+					+ "e forçado a viver de acordo com sua própria lenda, canalizando seus personagens mais icônicos e amados na tela para salvar a si \r\n"
 					+ "mesmo e seus entes queridos.Com uma carreira constru�da para este momento, o experiente ator deve assumir o papel de sua vida. \r\n"
 					+ "\r\n");
 			oPesoDoTalento.setElenco("Nicolas Cage, Kristin Burr, Michael Nilon, Kevin Turen");
@@ -186,12 +184,12 @@ public class Programa {
 
 			Filme superQuem = new Filme();
 			superQuem.setNome("Super Quem?");
-			superQuem.setGenero("Com�dia");
-			superQuem.setSinopse("Cedric � um ator que, ap�s anos tendo sua carreira vista como chacota, \r\n"
-					+ "encontra uma oportunidade que promete mudar sua vida: dar vida ao personagem super-her�i Badman! \r\n"
-					+ "Nome familiar, n�o?... S� que um acidente de carro n�o estava nos planos de Cedric. Assim que o ator \r\n"
-					+ "desperta da batida, sua vida real se torna um apag�o, e Cedric passa a acreditar que ele � legitimamente Badman, \r\n"
-					+ "o super-her�i. \r\n" + "\r\n");
+			superQuem.setGenero("Comédia");
+			superQuem.setSinopse("Cedric é um ator que, após anos tendo sua carreira vista como chacota, \r\n"
+					+ "encontra uma oportunidade que promete mudar sua vida: dar vida ao personagem super-herói Badman! \r\n"
+					+ "Nome familiar, não?... Só que um acidente de carro não estava nos planos de Cedric. Assim que o ator \r\n"
+					+ "desperta da batida, sua vida real se torna um apagão, e Cedric passa a acreditar que ele é legitimamente Badman, \r\n"
+					+ "o super-herói. \r\n" + "\r\n");
 			superQuem.setElenco("Philippe Lacheau, Julien Arruti, Tarek Boudali, Elodie Fontan, Alice Dufour");
 			superQuem.setDiretor("Philippe Lacheau");
 			superQuem.setDistribuidora("Paris Filme");
@@ -200,9 +198,9 @@ public class Programa {
 
 			Filme cidadePerdida = new Filme();
 			cidadePerdida.setNome("Cidade Perdida");
-			cidadePerdida.setGenero("Com�dia");
-			cidadePerdida.setSinopse("Uma romancista em um tour de livro com seu modelo de capa � envolvida em uma \r\n"
-					+ "tentativa de sequestro que os leva a uma aventura implac�vel na selva. \r\n" + "\r\n");
+			cidadePerdida.setGenero("Comódia");
+			cidadePerdida.setSinopse("Uma romancista em um tour de livro com seu modelo de capa é envolvida em uma \r\n"
+					+ "tentativa de sequestro que os leva a uma aventura implacável na selva. \r\n" + "\r\n");
 			cidadePerdida.setElenco("Sandra Bullock, Channing Tatum, Daniel Radcliffe e Brad Pitt");
 			cidadePerdida.setDiretor("Aaron Nee/Adam Nee");
 			cidadePerdida.setDistribuidora("Paramount");
@@ -220,11 +218,11 @@ public class Programa {
 			belfast.setGenero("Drama");
 			belfast.setSinopse(
 					"Em Belfast, no final dos tumultuosos anos de 1960 na Irlanda do Norte, o jovem Buddy (Jude Hill) percorre a paisagem das lutas da classe \r\n"
-							+ "trabalhadora, em meio de mudan�as culturais e viol�ncia extrema. Buddy sonha em um futuro melhor, glamoroso, que vai tir�-lo dos problemas \r\n"
-							+ "que enfrenta no momento, mas, enquanto isso n�sso acontece, ele se consola com o carism�tico Pa (Jamie Dornan) e a Ma (Caitriona Balfe), \r\n"
-							+ "junto com seus av�s (Judie Dench e Ciar�n Hinds) que contam hist�rias maravilhosas. Classifica��o indicativa 14 anos, cont�m viol�ncia, \r\n"
-							+ "atos criminosos e temas sens�veis. \r\n" + "\r\n");
-			belfast.setElenco("Jamie Dornan, Caitriona Balfe, Judie Dench, Ciar�n Hinds");
+							+ "trabalhadora, em meio de mudanças culturais e violência extrema. Buddy sonha em um futuro melhor, glamoroso, que vai tirá-lo dos problemas \r\n"
+							+ "que enfrenta no momento, mas, enquanto isso nísso acontece, ele se consola com o carismático Pa (Jamie Dornan) e a Ma (Caitriona Balfe), \r\n"
+							+ "junto com seus avós (Judie Dench e Ciaran Hinds) que contam histórias maravilhosas. Classificação indicativa 14 anos, contém violência, \r\n"
+							+ "atos criminosos e temas sensíveis. \r\n" + "\r\n");
+			belfast.setElenco("Jamie Dornan, Caitriona Balfe, Judie Dench, Ciarán Hinds");
 			belfast.setDiretor("Kenneth Branagh");
 			belfast.setDistribuidora("Universal");
 			belfast.setClassificacao(14);
@@ -234,10 +232,10 @@ public class Programa {
 			driveMyCar.setNome("Drive My Car");
 			driveMyCar.setGenero("Drama");
 			driveMyCar.setSinopse(
-					"Dois anos ap�s a morte de sua esposa, Yusuke recebe uma oferta para dirigir uma produ��o do Tio Vanya num festival de teatro. � medida que \r\n"
-							+ "brotam tens�es entre o elenco e a equipe, Yusuke � for�ado a enfrentar verdades de seu passado com a ajuda de Misaki, uma jovem escolhida \r\n"
-							+ "para ser sua motorista. 04 Indica��es ao Oscar, incluindo Melhor Filme, Melhor Diretor e Melhor Filme Estrangeiro. Classifica��o indicativa \r\n"
-							+ "16 anos, cont�m conte�do sexual, drogas l�citas e linguagem impr�pria.\r\n" + "\r\n");
+					"Dois anos após a morte de sua esposa, Yusuke recebe uma oferta para dirigir uma produção do Tio Vanya num festival de teatro. À medida que \r\n"
+							+ "brotam tensões entre o elenco e a equipe, Yusuke é forçado a enfrentar verdades de seu passado com a ajuda de Misaki, uma jovem escolhida \r\n"
+							+ "para ser sua motorista. 04 Indicações ao Oscar, incluindo Melhor Filme, Melhor Diretor e Melhor Filme Estrangeiro. Classificação indicativa \r\n"
+							+ "16 anos, contém conteúdo sexual, drogas lícitas e linguagem imprópria.\r\n" + "\r\n");
 			driveMyCar.setElenco("Hidetoshi Nishijima, Toko Miura, Masaki Okada");
 			driveMyCar.setDiretor("Ryusuke Hamaguchi");
 			driveMyCar.setDistribuidora("O2 Play");
@@ -245,12 +243,12 @@ public class Programa {
 			driveMyCar.setDuracao(175);
 
 			Filme kingRichard = new Filme();
-			kingRichard.setNome("King Richard: Criando Campe�es");
+			kingRichard.setNome("King Richard: Criando Campeãs");
 			kingRichard.setGenero("Drama");
 			kingRichard.setSinopse(
-					"Baseado em uma hist�ria real, o filme King Richard: Criando Campe�s mostra a jornada ao estrelato das tenistas Venus e Serena Williams. \r\n"
-							+ "Determinado em fazer de suas filhas atletas medalhistas, Richard (Will Smith) as treina com determina��o e foco inquebr�veis. Classifica��o \r\n"
-							+ "indicativa 12 anos, cont�m drogas, viol�ncia e Linguagem impr�pria.\r\n" + "\r\n");
+					"Baseado em uma história real, o filme King Richard: Criando Campeãs mostra a jornada ao estrelato das tenistas Venus e Serena Williams. \r\n"
+							+ "Determinado em fazer de suas filhas atletas medalhistas, Richard (Will Smith) as treina com determina��o e foco inquebráveis. Classificação \r\n"
+							+ "indicativa 12 anos, contém drogas, violência e Linguagem imprópria.\r\n" + "\r\n");
 			kingRichard.setElenco("Will Smith, Aunjanue Ellis, Saniyya Sidney, Demi Singleton");
 			kingRichard.setDiretor("Reinaldo Marcus Green");
 			kingRichard.setDistribuidora("Warner Bros");
@@ -279,9 +277,9 @@ public class Programa {
 			vejaPorMim.setNome("Veja Por Mim");
 			vejaPorMim.setGenero("Suspense");
 			vejaPorMim.setSinopse(
-					"Sophie, uma jovem cega cuidando de uma mans�o isolada, se encontra diante de uma invas�o dom�stica por bandidos procurando \r\n"
-							+ "um cofre secreto. Sua �nica forma de defesa  � um aplicativo chamado Veja por Mim. O aplicativo a conecta com um volunt�rio \r\n"
-							+ "do outro lado do pa�s para ajud�-la a sobreviver. \r\n" + "\r\n");
+					"Sophie, uma jovem cega cuidando de uma mansão isolada, se encontra diante de uma invasão doméstica por bandidos procurando \r\n"
+							+ "um cofre secreto. Sua única forma de defesa é um aplicativo chamado 'Veja por Mim'. O aplicativo a conecta com um voluntário \r\n"
+							+ "do outro lado do país para ajudá-la a sobreviver. \r\n" + "\r\n");
 			vejaPorMim.setElenco("Skyler Davenport, Kim Coates, Jessica Parker Kennedy");
 			vejaPorMim.setDiretor("Randall Okita");
 			vejaPorMim.setDistribuidora("Paris Filmes");
@@ -292,11 +290,11 @@ public class Programa {
 			naqueleFimDeSemana.setNome("Naquele Fim de Semana");
 			naqueleFimDeSemana.setGenero("Suspense");
 			naqueleFimDeSemana.setSinopse(
-					"Baseado no livro hom�nimo de Sarah Alderson, Naquele Fim de Semana segue Kate e Orla. Duas melhores amigas que sempre superaram \r\n"
-							+ "contratempos pessoais, n�o importando o que acontecesse ao longo do ano, elas esperavam ansiosamente pelo seu fim de semana \r\n"
-							+ "especial, um quase evento anual. Este ano elas decidiram planejar uma viagem � Lisboa, e tudo estava perfeito at� Orla acordar \r\n"
-							+ "e perceber que Kate se encontrava desaparecida. Com apenas uma mem�ria confusa da noite anterior e a pol�cia n�o cooperando \r\n"
-							+ " o suficiente, sua busca fren�tica revelar� segredos devastadores e uma amea�a que j� pairava mais perto do que ela poderia imaginar. \r\n"
+					"Baseado no livro homônimo de Sarah Alderson, Naquele Fim de Semana segue Kate e Orla. Duas melhores amigas que sempre superaram \r\n"
+							+ "contratempos pessoais, não importando o que acontecesse ao longo do ano, elas esperavam ansiosamente pelo seu fim de semana \r\n"
+							+ "especial, um quase evento anual. Este ano elas decidiram planejar uma viagem à Lisboa, e tudo estava perfeito até Orla acordar \r\n"
+							+ "e perceber que Kate se encontrava desaparecida. Com apenas uma memória confusa da noite anterior e a polícia não cooperando \r\n"
+							+ " o suficiente, sua busca frenética revelará segredos devastadores e uma ameaça que já pairava mais perto do que ela poderia imaginar. \r\n"
 							+ "\r\n");
 			naqueleFimDeSemana.setElenco("Leighton Meester , Luke Norris , Christina Wolfe");
 			naqueleFimDeSemana.setDiretor("Kim Farrant");
@@ -311,14 +309,14 @@ public class Programa {
 			// FILMES DE TERROR
 			ArrayList<Filme> filmesDeTerror = new ArrayList<Filme>();
 			Filme oRitual = new Filme();
-			oRitual.setNome("O Ritual: Presen�a Maligna");
+			oRitual.setNome("O Ritual: Presença Maligna");
 			oRitual.setGenero("Terror");
 			oRitual.setSinopse(
 					"Marianne, seu marido Lionel e sua filha Adelaide se mudam para uma cidade no interior da Inglaterra, onde Lionel foi nomeado o novo reverendo. \r\n"
-							+ "Logo que chegam em sua nova casa, Marianne percebe que estranhos e assustadores eventos come�am a acontecer, levantando as suspeitas de que as pessoas \r\n"
-							+ "da cidade escondem um segredo terr�vel. Com a ajuda de um famoso ocultista, o casal vai testar toda a sua f�, buscando descobrir a aterrorizante verdade \r\n"
-							+ "sobre a presen�a maligna que habita sua casa e deseja possuir sua filha Adelaide. Classifica��o indicativa 14 anos, cont�m viol�ncia, conte�do sexual \r\n"
-							+ "e drogas l�citas. \r\n" + "\r\n");
+							+ "Logo que chegam em sua nova casa, Marianne percebe que estranhos e assustadores eventos começam a acontecer, levantando as suspeitas de que as pessoas \r\n"
+							+ "da cidade escondem um segredo terrível. Com a ajuda de um famoso ocultista, o casal vai testar toda a sua fé, buscando descobrir a aterrorizante verdade \r\n"
+							+ "sobre a presença maligna que habita sua casa e deseja possuir sua filha Adelaide. Classificação indicativa 14 anos, contém violência, conteúdo sexual \r\n"
+							+ "e drogas lícitas. \r\n" + "\r\n");
 			oRitual.setElenco("Jessica Brown Findlay; John Lynch ; Sean Harris; Anya McKenna-Bruce");
 			oRitual.setDiretor("Christopher Smith");
 			oRitual.setDistribuidora("Playarte");
@@ -329,8 +327,8 @@ public class Programa {
 			telefonePreto.setNome("O Telefone Preto");
 			telefonePreto.setGenero("Terror");
 			telefonePreto.setSinopse(
-					"Em O Telefone Preto, Finney Shaw, um garoto de 13 anos, � sequestrado por um s�dica serial killer (Ethan Hawke) em um por�o a prova de som, onde os gritos \r\n"
-							+ "do menino n�o podem ser ouvidos. Na parede do por�o, Finney encontra um telefone antigo. Quando o aparelho toca, o garoto consegue ouvir a voz das v�timas \r\n"
+					"Em O Telefone Preto, Finney Shaw, um garoto de 13 anos, é sequestrado por um sádico serial killer (Ethan Hawke) em um porão a prova de som, onde os gritos \r\n"
+							+ "do menino não podem ser ouvidos. Na parede do porão, Finney encontra um telefone antigo. Quando o aparelho toca, o garoto consegue ouvir a voz das vítimas \r\n"
 							+ "anteriores do assassino, e elas tentam evitar que o Finney sofra o mesmo destino. Enquanto isso, a melhor amiga de Finney tem sonhos que indicam o lugar onde \r\n"
 							+ "ele pode estar e corre contra o tempo para resgatar o amigo antes que seja tarde demais.\r\n"
 							+ "\r\n");
@@ -344,8 +342,8 @@ public class Programa {
 			crocodilos.setNome("Crocodilos: A Morte te Espera");
 			crocodilos.setGenero("Terror");
 			crocodilos.setSinopse(
-					"Um casal aventureiro que convence seus amigos a explorar um remoto sistema de cavernas nas florestas do norte da Austr�lia. Com uma tempestade se aproximando, \r\n"
-							+ "eles descem para a entrada da caverna, que come�a a inundar, e se encontram amea�ados por um bando de crocodilos, o que os levar� a uma intensa luta pela sobreviv�ncia.\r\n"
+					"Um casal aventureiro que convence seus amigos a explorar um remoto sistema de cavernas nas florestas do norte da Austrália. Com uma tempestade se aproximando, \r\n"
+							+ "eles descem para a entrada da caverna, que começa a inundar, e se encontram ameaçados por um bando de crocodilos, o que os levará a uma intensa luta pela sobrevivência.\r\n"
 							+ "\r\n");
 			crocodilos.setElenco("Jessica McNamee, Luke Mitchell, Amali Golden");
 			crocodilos.setDiretor("Andrew Traucki");
@@ -360,13 +358,13 @@ public class Programa {
 			// INICIO LOOP
 			do {
 
-				System.out.println("\nEscolha um g�nero abaixo para ver os filmes dispon�veis: \n");
+				System.out.println("\nEscolha um gênero abaixo para ver os filmes disponíveis: \n");
 				System.out.println("1-Ação  " + "2-Comédia  " + "3-Drama  " + "4-Suspense  " + "5-Terror");
 				opcao = ler.nextInt();
 
 				if (opcao != 1 && opcao != 2 && opcao != 3 && opcao != 4 && opcao != 5) {
 					System.out.println("\nERRO!\n");
-					System.out.println("\nFIM DO PROGRAMA!");
+					System.out.println("\nFIM DO PROGRAMA! POR FAVOR, TENTE NOVAMENTE.");
 					System.exit(0);
 				}
 
@@ -388,7 +386,7 @@ public class Programa {
 					selecaoFilme = ler.nextInt();
 					if (selecaoFilme != 1 && selecaoFilme != 2 && selecaoFilme != 3) {
 						System.out.println("\nERRO!\n");
-						System.out.println("\nFIM DO PROGRAMA!");
+						System.out.println("\nFIM DO PROGRAMA! POR FAVOR, TENTE NOVAMENTE.");
 						System.exit(0);
 					}
 
@@ -411,16 +409,16 @@ public class Programa {
 				// MENU DO GENERO COMEDIA
 				case 2:
 
-					System.out.println("Filmes de Com�dia: \n");
+					System.out.println("Filmes de Comédia: \n");
 					System.out.println("1-O Peso do Talento\n");
 					System.out.println("2-Super Quem? \n");
 					System.out.println("3-Cidade Perdida\n");
-					System.out.println("Escolha o filme de sua prefer�ncia: \n");
+					System.out.println("Escolha o filme de sua preferência: \n");
 
 					selecaoFilme = ler.nextInt();
 					if (selecaoFilme != 1 && selecaoFilme != 2 && selecaoFilme != 3) {
 						System.out.println("\nERRO!\n");
-						System.out.println("\nFIM DO PROGRAMA!");
+						System.out.println("\nFIM DO PROGRAMA! POR FAVOR, TENTE NOVAMENTE.");
 						System.exit(0);
 					}
 
@@ -446,13 +444,13 @@ public class Programa {
 					System.out.println("Filmes de Drama: \n");
 					System.out.println("1-Belfast\n");
 					System.out.println("2-Drive My Car\n");
-					System.out.println("3-King Richard: Criando Campe�s\n");
-					System.out.println("Escolha o filme de sua prefer�ncia: \n");
+					System.out.println("3-King Richard: Criando Campeãs\n");
+					System.out.println("Escolha o filme de sua preferência: \n");
 
 					selecaoFilme = ler.nextInt();
 					if (selecaoFilme != 1 && selecaoFilme != 2 && selecaoFilme != 3) {
 						System.out.println("\nERRO!\n");
-						System.out.println("\nFIM DO PROGRAMA!");
+						System.out.println("\nFIM DO PROGRAMA! POR FAVOR, TENTE NOVAMENTE.");
 						System.exit(0);
 					}
 
@@ -479,12 +477,12 @@ public class Programa {
 					System.out.println("1-A Hora do Desespero\n");
 					System.out.println("2-Veja Por Mim\n");
 					System.out.println("3-Naquele Fim de Semana\n");
-					System.out.println("Escolha o filme de sua prefer�ncia: \n");
+					System.out.println("Escolha o filme de sua preferência: \n");
 
 					selecaoFilme = ler.nextInt();
 					if (selecaoFilme != 1 && selecaoFilme != 2 && selecaoFilme != 3) {
 						System.out.println("\nERRO!\n");
-						System.out.println("\nFIM DO PROGRAMA!");
+						System.out.println("\nFIM DO PROGRAMA! POR FAVOR, TENTE NOVAMENTE.");
 						System.exit(0);
 					}
 
@@ -508,15 +506,15 @@ public class Programa {
 				case 5:
 
 					System.out.println("Filmes de Terror: \n");
-					System.out.println("1-O Ritual: Presen�a Maligna\n");
+					System.out.println("1-O Ritual: Presença Maligna\n");
 					System.out.println("2-O Telefone Preto\n");
 					System.out.println("3-Crocodilos: A Morte te Espera\n");
-					System.out.println("Escolha o filme de sua prefer�ncia: \n");
+					System.out.println("Escolha o filme de sua preferência: \n");
 
 					selecaoFilme = ler.nextInt();
 					if (selecaoFilme != 1 && selecaoFilme != 2 && selecaoFilme != 3) {
 						System.out.println("\nERRO!\n");
-						System.out.println("\nFIM DO PROGRAMA!");
+						System.out.println("\nFIM DO PROGRAMA! POR FAVOR, TENTE NOVAMENTE.");
 						System.exit(0);
 					}
 
@@ -539,10 +537,10 @@ public class Programa {
 
 				//OPÇÃO DE COMPRA DO FILME
 				System.out.println("\nDeseja comprar o filme?");
-				System.out.println("\nDigite 's' para sim 'n' para n�o.");
+				System.out.println("\nDigite 's' para sim 'n' para não.");
 				comprarLer = ler.next().charAt(0);
 				if (comprarLer == 's') {
-					System.out.println("\nO filme foi adicionado � sua carteira virtual!");
+					System.out.println("\nO filme foi adicionado à sua carteira virtual!");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println("\nDeseja sair?\nDigite 's' para sair ou digite 'n' para retornar ao inicio.");
 
@@ -558,7 +556,7 @@ public class Programa {
 			System.out.println("Obrigado, volte sempre!!");
 			ler.close();
 		} catch (Exception erro) {
-			System.out.println("\nERRO!" + erro + "\n\nFIM DO PROGRAMA!");
+			System.out.println("\nERRO!" + erro + "\n\nFIM DO PROGRAMA! POR FAVOR, TENTE NOVAMENTE.");
         //FINAL EXCEPTION GERAL
 		}
 	}

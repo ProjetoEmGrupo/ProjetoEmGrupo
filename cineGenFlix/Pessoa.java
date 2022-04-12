@@ -19,7 +19,7 @@ public class Pessoa implements interfacePessoa{
 	@Override
 	public void deslogar()
 	{
-		System.out.println("Voc� est� deslogado");
+		System.out.println("Você está deslogado");
 	}
 
 
